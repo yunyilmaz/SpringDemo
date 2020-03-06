@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
-    @GetMapping("/{id}")
-    public CustomerDTO readCustomerById(@PathVariable long id) {
+
+    @GetMapping("/{customerId}")
+    public CustomerDTO readCustomerById(@PathVariable long customerId) {
         CustomerDTO customer = new CustomerDTO();
-        customer.setId((int) id);
+        customer.setId((int) customerId);
         customer.setAddress("New York / USA");
         customer.setName("Yakup UNYILMAZ");
 
