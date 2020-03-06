@@ -4,6 +4,8 @@ import com.yunyilmaz.OrderService.client.CustomerDTO;
 import com.yunyilmaz.OrderService.client.CustomerServiceClient;
 import com.yunyilmaz.OrderService.client.ProductDTO;
 import com.yunyilmaz.OrderService.client.ProductServiceClient;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,10 +22,12 @@ public class OrderController {
     @Autowired
     private CustomerServiceClient customerServiceClient;
 
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
     @PostMapping("/orders")
     public OrderResponseDTO createOrder(@RequestBody OrderRequestDTO requestDTO) {
 
-
+        logger.info(requestDTO.toString());
         OrderResponseDTO orderResponseDTO = new OrderResponseDTO();
 
 
